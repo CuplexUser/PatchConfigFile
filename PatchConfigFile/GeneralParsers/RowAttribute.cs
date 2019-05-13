@@ -167,7 +167,7 @@ namespace PatchConfigFile.GeneralParsers
             return rowNumberComparison;
          }
 
-         var rowTrimmedLengthComparison = string.Compare(RowTrimmedLength, other.RowTrimmedLength, StringComparison.Ordinal);
+         var rowTrimmedLengthComparison = RowTrimmedLength.CompareTo(other.RowTrimmedLength);
          if (rowTrimmedLengthComparison != 0)
          {
             return rowTrimmedLengthComparison;

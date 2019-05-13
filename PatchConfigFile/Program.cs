@@ -11,6 +11,7 @@ namespace PatchConfigFile
         static void Main(string[] args)
         {
             var sb = new StringBuilder();
+            ConfigFilePatcher patcher = new ConfigFilePatcher();
             if (args.Length == 1 && HelpModule.MaxesHelpArgument(args[0]))
             {
                 HelpModule.DisplayHelpText();
@@ -51,6 +52,8 @@ namespace PatchConfigFile
                             Console.WriteLine($"Invalid config, problem: {message}");
                             return;
                         }
+
+
 
                         
 
