@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config AppendMode="true">
+	<InitFileName>R:\Build\Products\E3D\Debug\evars.init</InitFileName>	
+	<SearchString>
+		rem --------------------------------------------------
+		rem Make call to set project variables
+		rem --------------------------------------------------
+	</SearchString>	
+	<InsertString>
+	---------------------------------------------------------------------------------------
+	set projects_dir=C:\Users\Public\Documents\AVEVA\Projects\E3D3.1\
+	call %projects_dir%custom_evars.bat
+	---------------------------------------------------------------------------------------
+	</InsertString>
+</Config>

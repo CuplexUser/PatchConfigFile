@@ -1,0 +1,17 @@
+{
+	"ReplaceMode": true,
+	"InitFileName": "R:\\Build\\Products\\E3D\\Debug\\evars.init",
+	"searchStrings": [
+		"rem --------------------------------------------------",
+		"rem Make call to set project variables",
+		"rem --------------------------------------------------",
+		"",
+		"rem call something"
+	],
+	"InsertStrings": [
+		"---------------------------------------------------------------------------------------",
+		"set projects_dir=C:\\Users\\Public\\Documents\\AVEVA\\Projects\\E3D3.1\\",
+		"call % projects_dir % custom_evars.bat ",
+		"---------------------------------------------------------------------------------------"
+	]
+}

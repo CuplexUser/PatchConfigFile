@@ -1,0 +1,66 @@
+rem ---------------------------------------------
+rem Set evars for the product
+rem ---------------------------------------------
+rem ----------------------------------------------------------------
+rem Check this is running in a view.
+rem ----------------------------------------------------------------
+
+if not "%view_root%"=="" goto view_ok
+echo view_root is not set. Use ccenv.
+goto end
+
+:view_ok
+set AVEVA_SHORTPATHS=true
+
+set aveva_design_exe=%aveva_design_installed_dir%
+
+set pmllib=%view_root%\pmllib\
+set pmlui=%view_root%\pdmsui\
+set aveva_design_plots=%pmlui%plots\
+set aveva_design_dflts=%pmlui%DFLTS\
+set aveva_design_work=C:\Temp\
+set aveva_design_user=C:\Temp\
+set aveva_design_rep_dir=%pmlui%reports\
+
+if not "%temp%"=="" goto tempok
+set temp=%aveva_design_work%
+:tempok
+
+echo aveva_design_exe set to %aveva_design_exe%
+echo pmllib set to %pmllib%
+echo pmlui set to %pmlui%
+echo aveva_design_plots set to %aveva_design_plots%
+echo aveva_design_user set to %aveva_design_user%
+echo aveva_design_dflts set to %aveva_design_dflts%
+echo aveva_design_work set to %aveva_design_work%
+echo aveva_design_rep_dir set to %aveva_design_rep_dir%
+echo temp set to %temp%
+
+set AVEVA_SHORTPATHS=false
+
+rem --------------------------------------------------
+rem Make call to set project variables
+rem --------------------------------------------------
+
+rem call something
+
+set path=%path%;%aveva_design_exe%;%aveva_design_exe%dars;%aveva_design_exe%autodraftACAD
+
+rem ----------------------------------------------------------------
+rem Add SDNF Interface variables
+rem ----------------------------------------------------------------
+set SDNFMAIN=%AVEVA_DESIGN_INSTALLED_DIR%
+if exist "%SDNFMAIN%SDNF_env.bat" call "%SDNFMAIN%SDNF_env.bat"
+
+rem ----------------------------------------------------------------
+rem Add AVEVA-bocad Interface variables
+rem ----------------------------------------------------------------
+set BOCMAIN=%AVEVA_DESIGN_INSTALLED_DIR%
+set BOCDATA=C:\Users\Public\Documents\AVEVA\Plant\ABSI\Data2.1.0\
+
+rem ----------------------------------------------------------------
+rem Add MDS variables
+rem ----------------------------------------------------------------
+set MDS_SUPPORT_CONFIG_LOCATION=%AVEVA_DESIGN_INSTALLED_DIR%
+
+:end
